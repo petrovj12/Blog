@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+<title>Satz von Bolyai-Gerwien</title>
+
+<link rel="stylesheet" href="../../style.css">
+</head>
+
+<body>
+
+	<script>
+		window.MathJax = {
+			tex: {
+				inlineMath: [['$', '$']]
+			}
+		};
+	</script>
+
+	<div class="haupt">
+	<div class="nav">
+		<span><a href="../../index.html">Letzter Eintrag</a></span>
+		<span><a href="../../Verzeichnis.html">Alle Einträge</a></span>
+		<span><a href="../../Ueber.html">Über die Website</a></span>
+	</div>
+
+	<div class="inhalt">
+		<h1>Wann kann man eine Figur durch geradlinige Schnitte in eine andere überführen?</h1>
+
+		<h2>Motivation</h2>
+
+		<p>Die Frage nach dem Flächeninhalt einer Figur ist so alt wie die Mathematik. Ausgehend von den schon bekannten Formeln (wie z.B. 
+		die eines Rechtecks) hatte man sich gefragt, ob solche einfachen Formeln auch für andere Figuren herzuleiten sind. Beispielsweise
+		kann man die Formel für den Inhalt eines Parallelogramms auf die eines Rechtecks reduzieren, in dem man das folgende
+		Dreieck links abschneidet und dann rechts wieder aufklebt:</p>
+
+		<figure>
+			<img src="./EquiParaRecht.png" alt="Skizze: Zerlegungsgleicheit - Parallelogramm zu Rechteck">
+			<figcaption>Abbildung 1: Das Parallelogramm $ABCD$ is scherenkongruent zum Rechteck $EE'CD$</figcaption>
+		</figure>
+
+		<p>Als natürlich erweist sich die Frage somit für welche Figuren man durch geradliniges Schneiden und Wiederaufkleben die eine in die
+		andere überführen kann. Es ist schon einmal zuerst klar, dass je zwei Figuren, für die man dies tun kann, stets vom selben Flächeninhalt
+		sein sollen. Gilt aber die Umkehrung? Eine allgemeine Antwort auf dieser Frage wäre kompliziert, denn die Figuren sehr unterschiedlich
+		sein können. Es ist intuitiv schon klar, dass eine Figur, die einen kurvigen Rand hat, durch endlich viele Schnitte nicht in einem
+		Polygon zu überführen sind, mögen diese sogar den gleichen Flächeninhalt haben, da man den kurvigen Rand nicht "geradebiegen" kann.</p>
+
+		<p>Ich nutze hier die Möglichkeit zu betonen, dass wir uns im Folgenden nur für <em>endliche</em> Zerlegungen interessieren. 
+		Gleichheit der Flächeninhalte zweier zerlegungsgleichen Figuren gilt a priori nur für endliche Zerlegungen und jeder Versuch 
+		eine solche Gleichheit bei unendlichen Zerlegungen nachzuweisen benötigt etwas mächtigere Werkzeuge aus der Analysis.</p>
+
+		<p>Schränken wir uns weiter auf Vielecke ein, so liefert der <b>Satz von Bolyai-Gerwien</b> eine positive Antwort auf der Frage: 
+		je zwei Vielecke mit selbem Flächeninhalt sind zerlegungsgleich. In diesem Artikel werden wir uns überlegen, wieso dies der Fall ist.</p>
+
+		<p>Bevor wir beginnen, sollten wir noch paar Definitionen und Schreibweisen festlegen. Ein Vieleck ist eine kompakte Teilmenge der Ebene, 
+		dessen Rand sich als endliche Vereinigung von geraden Strecken darstellen lässt. Äquivalent dazu könnte man ein Vieleck als 
+		eine endliche Vereinigung von Dreiecken definieren. Weiter schreiben wir für Vielecke $F, F' , F''$ $ F = F' + F''$ wenn 
+		$F = F' \cup F''$ und die Inneren von $F', F''$ disjunkt sind (d.h. sie teilen höchstens nur Randpunkte). Es ist also 
+		klar, dass sich die Flächeninhaltsfunktion $s(F)$ additiv verhält: $s(F) = s(F') + s(F'')$. Abschließend nennen wir zwei 
+		Vielecke $F,G$ kongruent, wenn das eine durch eine Bewegung (genauer Isometrie) in der Ebene in das andere überführt werden kann,
+		in Zeichen: $F \cong G$.</p>
+
+		<h2>Zerlegungsgleichheit</h2>
+
+		<p><span class="satz">Definition 1:</span> Zwei Vielecke $F$ und $G$ heißen <b>zerlegungsgleich</b> (oder <b>scherenkongruent</b>), in 
+		Zeichen $F \sim G$, wenn
+		$F = F_1 + \dots + F_n$ und $G = G_1 + \dots + G_n$ mit $F_i \cong G_i, i=1,\dots, n$. </p>
+
+		<p>Das folgende Lemma lässt sich nicht schwer formal beweisen. Für die Transitivität nimmt man die gemeinsame Zerlegung des mittleren Vielecks, 
+		die sich sowohl in das erste als auch in das letzte Vieleck umordnen lassen.</p>
+
+		<p><span class="satz">Lemma 2:</span> $\sim$ aus oben ist eine Äquivalenzrelation auf der Menge der Vielecke.</p>
+
+		<p><span class="satz" id="lemma3">Lemma 3:</span> Jedes Dreieck ist zerlegungsgleich zu einem Rechteck.</p>
+
+		<p><span class="satz">Beweis:</span> Es sei $ABC$ ein Dreieck. Sei $MN$ die Mittelparallele parallel zu $AB$
+		(d.h. die Gerade durch die Mittelpunkte $M, N$) von $AC, BC$. Es seien $U$ und $V$ die Lotfußpunkte der Senkrechten von
+		$A$ und $B$ auf $MN$. Dann ist $ABVU$ ein Rechteck. Sei D der Lotfußpunkt der Höhe von $C$ auf der Seite $AB$ und 
+		$S$ der Schnittpunkt von $MN$ und $CD$. Da $MSC$ und $MUA$ eine gleichlange Seite ($M$ ist der Mittelpunkt von 
+		$AC$ und die gleichen Winkel haben ($AU \parallel DS, AD \parallel US$) folgt $AMU \cong CMS $. Analog $BVN \cong CNS$. 
+		Damit ist aber $ABC$ zerlegungsgleich zu $ABVU$. $ \blacksquare $</p>
+
+		<figure>
+			<img src="./lemma2.png" alt="Lemma 3">
+			<figcaption>Abbildung 2: Skizze zum Beweis von Lemma 3.</figcaption>
+		</figure>
+
+		Hieraus folgt die alte berühmte Formel $s(ABC) = \frac{1}{2} \overline{CD} \cdot \overline{AB}$.
+
+		<p><span class="satz" id="lemma4">Lemma 4:</span> Je zwei Rechtecke vom selben Flächeninhalt sind zerlegungsgleich.</p>
+
+		<p><span class="satz">Beweis:</span> Man kann immer beide Rechtecke so bewegen, dass die einen gemeinsamen rechten Winkel haben.
+		Seien $ABCD$ und $AB'C'D'$ die resultierenden Rechtecke. Es sei $S$ der Schnitt von $BC$ und $C'D'$. Es entstehen zwei Fälle:</p>
+
+		<p><em>Fall 1:</em> Die Strecke $DB'$ schneidet die Strecke $D'S$. Sei $X$ dieser Punkt. Weiter muss $DB'$ auch $BS$ schneiden,
+		sagen wir in $Y$. Sei $R$ der Schnittpunkt von $B'C'$ und $DC$. Es reicht aus zu zeigen, dass $ASCD$ und $BB'C'S$ scherenkongruent sind.
+		Wir zeigen zuerst, dass $DB' \parallel CC'$. Da 
+		$s(ABCD) = s(AB'C'D')$, haben wir $|AB||BC| = |AB'||B'C'| $ $\Leftrightarrow$ $|DC||B'R|=|DR||B'C'|$ woraus folgt $DB' \parallel CC'$.
+		Also ist $XC'CD$ ein Parallelogramm. Daraus folgt $|DC|=|XC'|$, d.h. $|D'X| = |CR| = |SC'|= |BB'|$. Damit folgt aber 
+		$D'XD \cong SC'C \cong BB'Y$. Ähnlich folgt $YCD \cong B'C'X$ und somit auch $XSCD \cong YSC'B'$. Damit sind aber $ASCD$ und $BB'C'S$ wie 
+		gewünscht scherenkongruent.</p>
+
+		<figure>
+			<img src="lemma4.png" alt="Skizze zu Lemma 4">
+			<figcaption>Abbildung 3: Skizze zu Lemma 4</figcaption>
+		</figure>
+
+		<p><em>Fall 2:</em> Die Strecke $DB'$ schneidet die Strecke $D'S$ nicht. Der Trick hier ist, das Rechteck $ABCD$ in $k \in \mathbb{N}$ 
+		kongruente Stücke durch horizontalle Linien zu Zerlegung, wobei wir $k$ später feststellen. Diese $k$ Stücke legen wir horizontal 
+		nebeneinander ab, so dass
+		ein neues, zu $ABCD$ scherenkongruentes, Rechteck $AUVW$ entsteht. Indem wir $k$ so wählen, dass $k \in \mathbb{N}$ minimal mit 
+		$k > \frac{|AB'|/2}{|AB|}$ ist, haben wir erreicht, dass $AUVW$ und $AB'C'D'$ wie im Fall 1 sind. Damit haben wir den Fall 2 auf
+		den Fall 1 reduziert. $\blacksquare$</p>
+
+		<h2>Der Satz von Bolyai-Gerwien</h2>
+
+		<p><span class="satz">Theorem (Bolyai-Gerwien):</span> Je zwei Vielecke mit gleichem Flächeninhalt sind scherenkongruent.</p>
+
+		<p><span class="satz">Beweis:</span> Wir triangulieren die Vielecke. Jedes der resultierenden Dreiecke ist nach <a href="#lemma3">Lemma 3</a>
+		zu einem Rechteck scherenkongruent.
+		Es seien $R_1, \dots, R_n$ die entstehenden Rechtecke aus dem ersten Vieleck. Wir fixieren eine Strecke $AB$ mit Länge $|AB| = l > 0$.
+		An senkrechten Strahlen zu $AB$ in den Punkten $A$ und $B$, die in selber Richtung verlaufen, markieren wir Punkte $P_1, \dots, P_n$, 
+		$Q_1, \dots , Q_n$ auf selber Höhe so, dass $ABQ_jP_j$ denselben Flächeninhalt mit $R_j$, $j=1,\dots, n$, hat. Nach 
+		<a href="#lemma4">Lemma 4</a> sind $R_j$ und $ABQ_jP_j$ scherenkongruent, und somit also auch das erste Vieleck mit $ABQ_nP_n$.
+		Dasselbe können wir aber auch mit dem zweiten Vieleck tun: Dieses ist mit einem Vieleck $ABQ'_mP'_m$ kongruent. Da aber die 
+		ursprüngliche Vielecke denselben Flächeninhalt besitzen, besitzen auch $ABQ_nP_n$ und $ABQ'_mP'_m$ denselben Flächeninhalt. Da sie eine 
+		gleiche Seite haben, müssen sie auch übereinstimmen. Damit sind aber die ursprüngliche Vielecke scherenkongruent. $\blacksquare$</p>
+
+		<figure>
+			<img src="bol_ger.png" alt="Skizze zum Satz von Bolyai-Gerwien">
+			<figcaption>Abbildung 4: Skizze zum Theorem</figcaption>
+		</figure>
+
+
+		<h2>Was gilt noch in der Ebene?</h2>
+
+		<p>Damit ist der Satz von Bolyai-Gerwien für die euklidische Ebene bewiesen. Als Nächstes könnte man sich fragen, ob ähnliche oder gar stärkere 
+		Ergebnisse gelten. Als ein zur Zerlegungsgleicheit ähnliches Konzept erweist sich hier die Ergänzungsgleichheit. Wir nennen zwei 
+		Vielecke $F$ und $G$ <b>ergänzungsgleich</b>, wenn Vielecke $A_i \cong B_i, i=1, \dots, n$ so existieren, dass $F + A_1 + \dots + A_n \cong$
+		$G + B_1 + \dots + B_n$. Es ist nicht allzu schwer zu zeigen, dass je zwei Vielecke, die zerlegungsgleich sind, auch ergänzungsgleich sind.
+		Damit folgt zusammen mit dem Satz von Bolyai-Gerwien: Je zwei Vielecke vom selben Flächeninhalt sind ergänzungsgleich.</p> 
+
+		<figure>
+			<img src="erg_gl.png" alt="Skizze zum Satz von Bolyai-Gerwien">
+			<figcaption>Abbildung 5: Das Kreuz links und das Quadrat rechts sind ergänzungsgleich.</figcaption>
+		</figure>
+		
+		<p>Wir haben kongruente Figuren als diejenige definiert, die sich durch eine Isometrie ineinander überführen lassen. Eine Isometrie 
+		ist eine Abbildung, die Abstände erhält, z.B. Verschiebungen oder Drehungen. Die Isometrien der Ebene (und allgemeiner des 
+		$\mathbb{R}^n$) bilden eine sogenannte <a href="https://de.wikibooks.org/wiki/Mathe_f%C3%BCr_Nicht-Freaks:_Gruppen">Gruppe</a> 
+		mit der Komposition $\circ$.
+		Die Elemente dieser Gruppe sind von der Form $v \circ o$, wobei $v$ eine Verschiebung und $o$ eine orthogonale lineare Abbildung ist, 
+		d.h. eine Abbildung, die linear ist (also auch die $0$ festhält) und Skalarprodukte erhält, d.h. $\langle o(x), o(y) \rangle $
+		$= \langle x, y \rangle$ für alle $x,y \in \mathbb{R}^n$.
+		Es gibt aber zwei Arten von orthogonalen Abbildungen: eigentliche, diejenige mit $\det(o) = 1$, und uneigentliche, diejenige mit $\det(o) = -1$.
+		Intuitiv sind die eigentlichen diejenige, die Orientierung erhalten, also etwa nur Drehungen. Die uneigentlichen dagegen sind die Spiegelungen 
+		um einer Achse. Diese erhalten Orientierung nicht. Man stelle sich dies so vor: Man nehme ein Blatt Papier, dass eine weiße und eine rote Seite
+		hat. Es zeige die weiße Seite nach oben. Bei den eigentlichen Abbildungen bleibt die weiße Seite oben, wobei bei uneigentlichen Abbildungen 
+		die rote Seite nach oben zeigt. In drei Dimensionen sind also die eigentlichen Isometrien diejenige, die sich in der echten Welt ausführen 
+		lassen. Allgemeiner lassen sich uneigentliche Isometrien nur dann als stetige Abbildungen darstellen lassen, wenn man in höheren Dimensionen
+		übergeht! Etwa das, was wir mit dem Blatt Papier vorhin gemacht haben.
+		</p>
+
+		<p>Es stellt sich heraus, dass eigentliche Isometrien für den Satz von Bolyai-Gerwien ausreichen: eine Spiegelung haben wir 
+		nur an einer Stelle im Lemma 4 genutzt (an welcher?), diese lässt sich aber umgehen. Allgemeiner könnte man fragen, für welche 
+		Untergruppen $H < \operatorname{Isom}(\mathbb{R}^2)$ der Gruppe der Isometrien Bolyai-Gerwien immer noch gilt, d.h. für welche 
+		Untergruppen gilt Bolyai-Gerwien, wenn wir Figuren nur dann kongruent nennen, wenn eine Bewegung aus $H$ existiert, die 
+		die eine Figur in die andere überführt. Es gilt: die Gruppe der Verschiebungen und Punktspiegelungen (also Drehungen um $\pi$) 
+		ist die kleinste Gruppe, für die Bolyai-Gerwien immer noch gilt. Viele der Isometrien der Ebene sind also überflüssig. 
+																							Für Beweise dieser Behauptungen und Weiteres zu diesem Thema seien Sie auf
+																							Boltianskii.  <em>Hilbert's third problem</em> verwiesen.
+		</p>
+
+		<h2>Und in 3D?</h2>
+
+		<p>
+		Die Frage, ob Bolyai-Gerwien in mehreren Dimensionen gilt, führt auf das dritte Hilbertsche Problem. Zur Jahrhundertwende, 
+		veröffentlichte der deutsche Mathematiker <a href="https://de.wikipedia.org/wiki/David_Hilbert">D. Hilbert</a> eine Sammlung der 
+		(der gängigen Ansicht entsprechend) 23 zu der Zeit größten
+		ungelösten Problemen der 
+		Mathematik. Das dritte Problem, ob zwei Tetraeder mit selber Höhe und Grundfläche (und damit auch vom selben Volumen) existieren, die 
+		aber nicht zerlegungsgleich sind, ist das erste dieser Probleme, das eine Antwort bekam. Das Problem wurde sogar im selben Jahr zur 
+	Veröffentlichung von <a href="https://de.wikipedia.org/wiki/Max_Dehn">M. Dehn</a>
+	gelöst. Er konnte mittels Konstruktion additiver Invarianten in drei Dimensionen, für 
+		die zwei Tetraeder existieren, die verschiedene Werte annehmen, zeigen, dass diese nicht zerlegungsgleich sein können.  
+		</p>
+
+		<p>
+		Seitdem bleiben nur noch drei der Hilbertschen Probleme ungelöst, wobei eins dieser noch ungelösten Probleme die berüchtigte
+		<a href="https://de.wikipedia.org/wiki/Riemannsche_Vermutung">Riemannsche Vermutung</a> 
+		ist, und ein anderes sich mit der Axiomatisierung der Physik befasst. Diese Tatsache zeugt vom großen Fortschritt, der in den vergangenen 
+		124 Jahren in der Mathematik erzielt wurde. 
+
+		<h2>Quellen und Literaturverweise</h2>
+
+		<p>Die vorgeführten Beweise und Weiteres zum Thema Zerlegungsgleichheit von zwei- und dreidimensionalen Polytopen sind im schon erwähnten
+		Buch Boltianskii.<em>Hilbert's third problem</em> zu finden. </p>
+		</p>
+	</div>
+	</div>
+</body>
+
+</html>

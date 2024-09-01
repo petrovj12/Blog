@@ -1,0 +1,75 @@
+body{
+margin: 0;
+padding: 0;
+background:black;
+color:white;
+font-size:20px;
+font-family:serif;
+}
+
+.haupt{
+margin:auto;
+width:40%;
+padding:10px;
+line-height:1.5;
+text-align:justify;
+}
+
+.satz{
+margin:0px, 10px;
+font-style:italic;
+font-weight:bold;
+text-decoration:underline;
+}
+
+
+figure{
+width:80%;
+margin:20px auto;
+}
+
+.weisslink a{
+color: white;
+font-style:italic;
+}
+
+figcaption{
+text-align:center;
+}
+img{
+	width:100%;
+}
+
+.nav{
+margin:0;
+width:100%;
+display:flex;
+justify-content:center;
+}
+
+.nav span{
+margin:0 10px;
+}
+
+.nav a{
+color:white;
+}
+
+.inhalt{
+margin-top:20px;
+}
+
+.inhalt h1{
+	text-align: center;
+}
+
+.inhalt h2{
+	text-align: center;
+}
+
+
+
+
+
+
+
